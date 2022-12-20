@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="game.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+
+  <script src="game.js" defer type="module"></script>
+  <title>space shooter canvas game</title>
+</head>
+
+<body>
+  <div class="images-container">
+
+    <img src="./assets/img/ammo-box.png" id="AmmunitionBoxImage" alt="">
+    <img src="./assets/img/background.png" id="backgroundImage" alt="">
+    <img src="./assets/img/explosion.png" id="explosionImage" alt="">
+    <img src="./assets/img/scraps.png" id="scrapsImage" alt="">
+    <img src="./assets/img/ship.png" id="shipImage" alt="">
+    <img src="./assets/img/thrust_blue.png" id="thrustImage" alt="">
+    <img src="./assets/img/turret.png" id="enemyImage" alt="">
+    <img src="./assets/img/webb-bg.png" id="webBackgroundImage" alt="">
+
+
+    <!-- upgrade cards -->
+    <img src="./assets/upgrades/bulletDamage.png" id="bulletDamageUpImage" alt="">
+
+    <img src="./assets/upgrades/firingSpeed.png" id="firingSpeedImage" alt="">
+
+    <img src="./assets/upgrades/getAmmo.png" id="getAmmoImage" alt="">
+
+    <img src="./assets/upgrades/maxAmmoUp.png" id="maxAmmoUpImage" alt="">
+
+    <img src="./assets/upgrades/moreAmmoInBox.png" id="moreAmmoInBoxImage" alt="">
+
+    <img src="./assets/upgrades/pickUpRadius.png" id="pickUpRadiusImage" alt="">
+
+    <img src="./assets/upgrades/speedUp.png" id="speedUpImage" alt="">
+
+
+  </div>
+
+  <div id="game-container">
+    <canvas id="canvas"></canvas>
+    <div id="upgrades-container" class="hidden">
+      <div id="cards-container">
+
+      </div>
+      <div id="actions">
+        <button id="upgrade-button">take upgrade</button>
+      </div>
+    </div>
+
+  </div>
+  <h1 id="loading">Loading...</h1>
+</body>
+
+</html>

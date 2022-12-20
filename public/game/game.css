@@ -1,0 +1,96 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("assets/img/webb-bg.png");
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#loading {
+  color: #fff;
+  letter-spacing: 3px;
+  font-size: 4rem;
+  font-weight: 200;
+}
+
+.images-container {
+  display: none;
+}
+
+#game-container {
+  background-color: transparent;
+  position: relative;
+  display: none;
+}
+
+#canvas {
+  background: black;
+  border: 3px solid #212832;
+  border-radius: 5px;
+}
+
+#upgrades-container {
+  position: absolute;
+  top: 50px;
+  left: 25px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 782px;
+  height: 600px;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+#upgrades-container.hidden {
+  display: none;
+}
+
+#cards-container {
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-around;
+  height: 400px;
+}
+
+#actions {
+  background-color: #ffb200;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #19202a;
+}
+
+#actions > button {
+  padding: 15px 15px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  font-size: 24px;
+  background-color: #212832;
+  color: #fff;
+  letter-spacing: 1px;
+  font-family: "Press Start 2P", sans-serif;
+}
+
+.upgrade-card:hover,
+#actions > button:hover {
+  cursor: pointer;
+}
+
+#actions > button:hover {
+  color: #ffb200;
+}
