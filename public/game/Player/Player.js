@@ -1,5 +1,6 @@
 import { CircleCircleColliding } from "../utils.js";
 import { initPlayerStats } from "./playerInitStats.js";
+import Explosion from "../VisualEffects/Explosion.js";
 import Thruster from "./Thruster.js";
 
 export default class Player {
@@ -9,6 +10,10 @@ export default class Player {
     this.canvas = game.canvas;
     this.gameWidth = game.width;
     this.gameHeight = game.height;
+
+    this.destroyedSFX = new Audio();
+    this.destroyedSFX.src = "assets/sfx/playerDestroyed.wav";
+    this.destroyedSFX.volume = 0.05;
 
     this.timerTillNextBullet = 0;
     this.bulletController = game.playerBulletsController;
@@ -45,27 +50,29 @@ export default class Player {
   }
 
   draw(ctx) {
-    this.thruster1.draw(ctx);
-    this.thruster2.draw(ctx);
+    if (this.destroyed === false) {
+      this.thruster1.draw(ctx);
+      this.thruster2.draw(ctx);
 
-    ctx.save();
+      ctx.save();
 
-    ctx.shadowBlur = 15;
-    ctx.shadowColor = "aqua";
+      ctx.shadowBlur = 15;
+      ctx.shadowColor = "aqua";
 
-    ctx.drawImage(
-      this.image,
-      0,
-      0,
-      this.imageWidth,
-      this.imageHeight,
-      this.x,
-      this.y,
-      this.width,
-      this.height
-    );
+      ctx.drawImage(
+        this.image,
+        0,
+        0,
+        this.imageWidth,
+        this.imageHeight,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+      );
 
-    ctx.restore();
+      ctx.restore();
+    }
   }
 
   update(pickables) {
@@ -152,9 +159,12 @@ export default class Player {
 
             this.scraps = Math.abs(scrapsOverNeededForLevelUp);
             this.level++;
-            this.levelUpAtScrapsCount = Math.round(
-              this.levelUpAtScrapsCount * this.scrapsLevelUpModifier
-            );
+            // this.levelUpAtScrapsCount = Math.round(
+            //   this.levelUpAtScrapsCount * this.scrapsLevelUpModifier
+            // );
+            this.levelUpAtScrapsCount =
+              this.levelUpAtScrapsCount + this.scrapsLevelUpModifier;
+
             this.game.gamePaused = true;
           }
         }
@@ -171,6 +181,18 @@ export default class Player {
         pickable.markedForDeletion = true;
       }
     });
+  }
+
+  destroy(ctx) {
+    this.destroyed = true;
+    this.destroyedSFX.play();
+    return new Explosion(
+      ctx,
+      this.pickUpCircle.x,
+      this.pickUpCircle.y,
+      "white",
+      false
+    );
   }
 
   init() {

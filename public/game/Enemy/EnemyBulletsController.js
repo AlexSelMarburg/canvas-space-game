@@ -6,7 +6,7 @@ export default class EnemyBulletController {
   constructor(canvas) {
     this.canvas = canvas;
     this.shootSound = new Audio("assets/sfx/enemyShoot.wav");
-    this.shootSound.volume = 0.015;
+    this.shootSound.volume = 0.01;
   }
 
   shoot(bulletX, bulletY, speed, color) {

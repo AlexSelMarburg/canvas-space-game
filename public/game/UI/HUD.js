@@ -1,3 +1,5 @@
+import { currentWaveSettings } from "../Blocks/generateBlocks.js";
+
 export default class HUD {
   constructor(game) {
     this.canvas = game.canvas;
@@ -90,8 +92,7 @@ export default class HUD {
   drawWaveNumbers(ctx) {
     ctx.fillStyle = "#fff";
     ctx.font = "21px Arial";
-    // let waveNumberText = `WaveNr: ${currentWaveSettings.waveNr}`;
-    let waveNumberText = "welle: 1";
+    let waveNumberText = `waveNr: ${currentWaveSettings.waveNr}`;
     ctx.fillText(waveNumberText, 10, canvas.height - 15);
   }
 

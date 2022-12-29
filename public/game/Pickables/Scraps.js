@@ -22,7 +22,7 @@ export default class Scraps {
 
     this.movesTowardsPlayer = false;
     this.markedForDeletion = false;
-    this.allClearedPlayCollect = false;
+    this.currentWaveEnemiesCleared = false;
 
     this.velocity = { x: 0, y: 0 };
 
@@ -37,7 +37,10 @@ export default class Scraps {
     this.collisionCircle.x = this.x + this.width * 0.5;
     this.collisionCircle.y = this.y + this.height * 0.5;
 
-    if (this.allClearedPlayCollect || this.movesTowardsPlayer) {
+    if (
+      (!player.destroyed && this.currentWaveEnemiesCleared) ||
+      this.movesTowardsPlayer
+    ) {
       this.speed = this.playerPickUpSpeed;
 
       const angle = Math.atan2(
@@ -75,7 +78,7 @@ export default class Scraps {
   }
 
   playSound() {
-    if (!this.allClearedPlayCollect) {
+    if (!this.currentWaveEnemiesCleared) {
       this.sfx.currentTime = 0;
       this.sfx.play();
     }
@@ -85,7 +88,7 @@ export default class Scraps {
 
   isInCollectionRadiusOfPlayer(player) {
     if (
-      !this.allClearedPlayCollect &&
+      !this.currentWaveEnemiesCleared &&
       CircleCircleColliding(this.collisionCircle, player.pickUpCircle)
     ) {
       this.movesTowardsPlayer = true;

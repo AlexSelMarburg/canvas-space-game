@@ -3,15 +3,15 @@ import { fyShuffle } from "../utils.js";
 
 const initialWaveSettings = Object.freeze({
   WAVE_NUMBER: 0,
-  WAVE_SPEED: 0.52,
+  WAVE_SPEED: 0.2,
   BLOCK_ROWS: 5,
   BLOCK_COLUMNS: 12,
   BLOCK_SIZE: 64,
   BLOCK_GAP: 5,
   BLOCK_HEALTH: 0,
-  BLOCK_HEALTH_INCREASE_PER_WAVE: 1,
-  PICKABLE_COUNT: 3,
-  ENEMIES_COUNT: 5,
+  BLOCK_HEALTH_INCREASE_PER_WAVE: 0.5,
+  PICKABLE_COUNT: 5,
+  ENEMIES_COUNT: 12,
   SCRAPS_VALUE: 1,
 });
 

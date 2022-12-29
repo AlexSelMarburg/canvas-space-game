@@ -8,7 +8,7 @@ export class Enemy {
     this.x = x - this.width * 0.5;
     this.y = y - this.height * 0.5;
     this.speed = speed;
-    this.bulletSpeed = getRandomNumber(2, 4);
+    this.bulletSpeed = getRandomNumber(3, 5);
     this.bulletColor = "orange";
     this.bulletController = bulletController;
 

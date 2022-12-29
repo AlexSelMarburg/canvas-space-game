@@ -1,15 +1,24 @@
+import {
+  AmmoBoxValueUp,
+  AmmoDepotUp,
+  BulletDamageUp,
+  BulletFireRate,
+  PickUpRadius,
+  PlayerSideSpeedUp,
+} from "../Upgrades/upgrades.js";
+
 const playerInitStats = Object.freeze({
-  MAX_BULLETS: 30,
-  BULLET_SPEED: 5,
+  MAX_BULLETS: 100,
+  BULLET_SPEED: 8,
   BULLETS_GAP: 18,
   BULLETS_COLOR: "#fff",
   BULLET_DAMAGE: 1,
   BULLETS_IN_BOX_AMOUNT: 10,
   PICK_UP_RADIUS: 80,
   MOVEMENT_SPEED: 2,
-  SCRAPS: 30,
-  LEVEL_UP_SCRAPS_COUNT: 45,
-  SCRAPS_LEVEL_UP_MODIFIER: 1.5,
+  SCRAPS: 0,
+  LEVEL_UP_SCRAPS_COUNT: 30,
+  SCRAPS_LEVEL_UP_MODIFIER: 20,
   LEVEL: 1,
   WIDTH: 42,
   HEIGHT: 45,
@@ -38,12 +47,12 @@ export function initPlayerStats(player) {
   player.imageWidth = playerInitStats.IMAGE_WIDTH;
   player.imageHeight = playerInitStats.IMAGE_HEIGHT;
 
-  // player.upgrades = [
-  //   new AmmoDepotUp(),
-  //   new BulletDamageUp(),
-  //   new PickUpRadius(),
-  //   new BulletFireRate(),
-  //   new PlayerSideSpeedUp(),
-  //   new AmmoBoxValueUp(),
-  // ];
+  player.upgrades = [
+    new AmmoDepotUp(),
+    new BulletDamageUp(),
+    new PickUpRadius(),
+    new BulletFireRate(),
+    new PlayerSideSpeedUp(),
+    new AmmoBoxValueUp(),
+  ];
 }
